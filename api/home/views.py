@@ -35,6 +35,11 @@ def overview(request):
         'Delivery Book': {
             'Delivery Books list': url + 'delivery-book/',
             'Delivery Book detail': url + 'delivery-book/{id}/',
+            'Delivery Book create': url + 'delivery-book/create/',
+        },
+        'Export Service': {
+            'Export Services list': url + 'export-service/',
+            'Export Service detail': url + 'export-service/{id}/',
         },
     }
     return Response(router)

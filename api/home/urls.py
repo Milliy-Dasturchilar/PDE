@@ -9,4 +9,6 @@ urlpatterns = [
     path('packaging-service/', include('api.packaging_service.urls')),
     path('packaging-book/', include('api.packaging_book.urls')),
     path('delivery-service/', include('api.delivery_service.urls')),
+    path('delivery-book/', include('api.delivery_book.urls')),
+    path('export-service/', include('api.export_service.urls')),
 ]

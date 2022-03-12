@@ -1,9 +1,9 @@
 from rest_framework.serializers import ModelSerializer
-from models.packaging_book_model.models import PackagingBook
+from models.delivery_book_model.models import DeliveryBook
 
 
-class PackagingBookSerializer(ModelSerializer):
+class DeliveryBookSerializer(ModelSerializer):
     
     class Meta:
-        model = PackagingBook
+        model = DeliveryBook
         fields = '__all__'

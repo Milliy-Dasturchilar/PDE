@@ -1,11 +1,11 @@
 from rest_framework.serializers import ModelSerializer
 from api.company.serializers import CompanySerializer
-from models.delivery_service_model.models import DeliveryService
+from models.export_service_model.models import ExportService
 
 
-class DeliveryServiceSerializer(ModelSerializer):
+class ExportServiceSerializer(ModelSerializer):
     company = CompanySerializer(many=False)
 
     class Meta:
-        model = DeliveryService
+        model = ExportService
         fields = '__all__'

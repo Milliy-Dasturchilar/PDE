@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import DeliveryServiceListAPIView, DeliveryServiceDetailAPIView
+from .views import ExportServiceListAPIView, ExportServiceDetailAPIView
 
 
 urlpatterns = [
-    path('', DeliveryServiceListAPIView.as_view()),
-    path('<str:pk>/', DeliveryServiceDetailAPIView.as_view()),
+    path('', ExportServiceListAPIView.as_view()),
+    path('<str:pk>/', ExportServiceDetailAPIView.as_view()),
 ]

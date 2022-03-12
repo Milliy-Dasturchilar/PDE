@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import PackagingBookListAPIView, PackagingBookDetailAPIView, PackagingBookCreateAPIView
+from .views import DeliveryBookListAPIView, DeliveryBookDetailAPIView, DeliveryBookCreateAPIView
 
 
 urlpatterns = [
-    path('', PackagingBookListAPIView.as_view()),
-    path('<str:pk>/', PackagingBookDetailAPIView.as_view()),
-    path('create/', PackagingBookCreateAPIView.as_view()),
+    path('', DeliveryBookListAPIView.as_view()),
+    path('<str:pk>/', DeliveryBookDetailAPIView.as_view()),
+    path('create/', DeliveryBookCreateAPIView.as_view()),
 ]
