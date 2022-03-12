@@ -6,7 +6,7 @@ from django.conf import settings
 @api_view(['GET'])
 def overview(request):
     print(settings.DEBUG)
-    url = 'https://_.pythonanywhere.com/api/'
+    url = 'https://pde.pythonanywhere.com/api/'
     if settings.DEBUG:
         url = 'http://127.0.0.1:8000/api/'
 
