@@ -18,8 +18,6 @@ class Company(models.Model):
     address = models.TextField()
     logo_img = models.ImageField(blank=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
-
     objects = CompanyQuerySet()
 
     class Meta:
