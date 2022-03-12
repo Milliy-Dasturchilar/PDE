@@ -12,7 +12,7 @@ class PackagingService(models.Model):
         ('Dukkakli', 'Dukkakli'),
         ('Ziravor', 'Ziravor'),
     )
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='packaging_service')
     service_area = models.TextField()
     product_type = models.CharField(
         choices=PRODUCT_TYPE, default='Meva', max_length=255)

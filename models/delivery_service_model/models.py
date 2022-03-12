@@ -5,7 +5,7 @@ from models.company_model.models import Company
 
 
 class DeliveryService(models.Model):
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='delivery_service')
     car_model = models.CharField(max_length=255)
     products = models.TextField()
     service_area = models.TextField()
