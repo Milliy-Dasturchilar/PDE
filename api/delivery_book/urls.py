@@ -4,6 +4,6 @@ from .views import DeliveryBookListAPIView, DeliveryBookDetailAPIView, DeliveryB
 
 urlpatterns = [
     path('', DeliveryBookListAPIView.as_view()),
-    path('<str:pk>/', DeliveryBookDetailAPIView.as_view()),
     path('create/', DeliveryBookCreateAPIView.as_view()),
+    path('<str:pk>/', DeliveryBookDetailAPIView.as_view()),
 ]
