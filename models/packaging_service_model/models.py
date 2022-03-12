@@ -14,7 +14,8 @@ class PackagingService(models.Model):
     )
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     service_area = models.TextField()
-    product_type = models.CharField(choices=PRODUCT_TYPE, default='Meva', max_length=255)
+    product_type = models.CharField(
+        choices=PRODUCT_TYPE, default='Meva', max_length=255)
     product_name = models.CharField(max_length=255)
     min_amount = models.CharField(max_length=255)
     package_type = models.CharField(max_length=255)

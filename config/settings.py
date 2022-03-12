@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # local apps
     'models.company_model.apps.CompanyModelConfig',
     'models.packaging_service_model.apps.PackagingServiceModelConfig',
+    'models.delivery_service_model.apps.DeliveryServiceModelConfig',
 ]
 
 MIDDLEWARE = [
