@@ -23,5 +23,9 @@ def overview(request):
             'Delivery Services list': url + 'delivery-service/',
             'Delivery Service detail': url + 'delivery-service/{id}/',
         },
+        # 'Packaging Book': {
+        #     'Packaging Books list': url + 'packaging-book/',
+        #     'Packaging Book detail': url + 'packaging-book/{id}/',
+        # },
     }
     return Response(router)
