@@ -16,7 +16,7 @@ class Company(models.Model):
     name = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
     address = models.TextField()
-    logo_img = models.ImageField(upload_to='company', blank=True)
+    logo_img = models.ImageField(blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -33,7 +33,7 @@ class Company(models.Model):
 
     def save(self, *args, **kwargs):
         if self.logo_img:
-            self.logo_img.name = 'logo_' + self.name.lower() + '_.' + \
+            self.logo_img.name = 'logo_' + self.name.lower() + '.' + \
                 self.logo_img.name.split('.')[-1]
 
         super(Company, self).save(*args, **kwargs)
