@@ -11,6 +11,10 @@ def overview(request):
         url = 'http://127.0.0.1:8000/api/'
 
     router = {
+        'Users': {
+            'Check credentials': url + 'users/check-user/',
+            'Create user': url + 'users/create/',
+        },
         'Company': {
             'Companies list': url + 'company/',
             'Company detail': url + 'company/{id}/',

@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from api.user_serializers import UserSerializer
+from api.users.serializers import UserSerializer
 from models.company_model.models import Company
 
 
