@@ -20,7 +20,7 @@ class PackagingService(models.Model):
     min_amount = models.CharField(max_length=255)
     package_type = models.CharField(max_length=255)
     price_per_kg = models.CharField(max_length=255)
-    example_image = models.ImageField(blank=True)
+    example_image = models.ImageField()
 
     def __str__(self):
         return f'{self.company.name} - {self.product_type} - {self.product_name}'
