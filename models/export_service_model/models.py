@@ -9,6 +9,7 @@ class ExportService(models.Model):
     product_name = models.CharField(max_length=255)
     price_per_kg = models.CharField(max_length=255)
     max_volume = models.CharField(max_length=255)
+    address = models.TextField(blank=True)
 
     def __str__(self):
         return f'{self.company.name} - {self.product_name}'
