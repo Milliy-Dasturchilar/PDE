@@ -23,13 +23,18 @@ def overview(request):
             'Packaging Services list': url + 'packaging-service/',
             'Packaging Service detail': url + 'packaging-service/{id}/',
         },
+        'Packaging Book': {
+            'Packaging Books list': url + 'packaging-book/',
+            'Packaging Book detail': url + 'packaging-book/{id}/',
+            'Packaging Book create': url + 'packaging-book/create/',
+        },
         'Delivery Service': {
             'Delivery Services list': url + 'delivery-service/',
             'Delivery Service detail': url + 'delivery-service/{id}/',
         },
-        # 'Packaging Book': {
-        #     'Packaging Books list': url + 'packaging-book/',
-        #     'Packaging Book detail': url + 'packaging-book/{id}/',
-        # },
+        'Delivery Book': {
+            'Delivery Books list': url + 'delivery-book/',
+            'Delivery Book detail': url + 'delivery-book/{id}/',
+        },
     }
     return Response(router)

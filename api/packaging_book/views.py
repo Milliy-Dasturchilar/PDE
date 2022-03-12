@@ -11,7 +11,11 @@ class PackagingBookListAPIView(generics.ListAPIView):
 
 
 class PackagingBookDetailAPIView(generics.RetrieveAPIView):
+    queryset = PackagingBook.objects.all()
     serializer_class = PackagingBookSerializer
 
-    def get_queryset(self):
-        return PackagingBook.objects.filter(user_id=self.request.user)
+
+class PackagingBookCreateAPIView(generics.CreateAPIView):
+    queryset = PackagingBook.objects.all()
+    serializer_class = PackagingBookSerializer
+
