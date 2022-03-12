@@ -13,6 +13,7 @@ class PackagingBook(models.Model):
     address = models.TextField()
     date = models.CharField(max_length=255)
     is_done = models.BooleanField(default=False)
+    in_progress = models.BooleanField(default=False)
     booked_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
