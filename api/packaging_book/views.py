@@ -4,10 +4,14 @@ from .serializers import PackagingBookSerializer
 
 
 class PackagingBookListAPIView(generics.ListAPIView):
-    queryset = PackagingBook.objects.all()
     serializer_class = PackagingBookSerializer
+
+    def get_queryset(self):
+        return PackagingBook.objects.filter(user_id=self.request.user)
 
 
 class PackagingBookDetailAPIView(generics.RetrieveAPIView):
-    queryset = PackagingBook.objects.all()
     serializer_class = PackagingBookSerializer
+
+    def get_queryset(self):
+        return PackagingBook.objects.filter(user_id=self.request.user)
