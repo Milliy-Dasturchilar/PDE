@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'models.packaging_service_model.apps.PackagingServiceModelConfig',
     'models.delivery_service_model.apps.DeliveryServiceModelConfig',
     'models.packaging_book_model.apps.PackagingBookModelConfig',
+    'models.delivery_book_model.apps.DeliveryBookModelConfig',
 ]
 
 MIDDLEWARE = [
