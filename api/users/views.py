@@ -1,7 +1,6 @@
-from rest_framework import generics
 from rest_framework import permissions
 from django.contrib.auth import get_user_model
-from .serializers import UserSerializer, UserCreateSerializer
+from .serializers import UserSerializer
 from django.contrib.auth import authenticate
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
@@ -23,12 +22,6 @@ def check_user(request):
 
     serializer = UserSerializer(user, many=False)
     return Response(serializer.data, status=HTTP_200_OK)
-
-
-class UserCreateAPIView(generics.CreateAPIView):
-    queryset = get_user_model().objects.all()
-    serializer_class = UserCreateSerializer
-    permission_classes = (permissions.AllowAny,)
 
 
 @api_view(['POST'])
