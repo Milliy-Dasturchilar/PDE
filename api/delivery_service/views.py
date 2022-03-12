@@ -1,6 +1,6 @@
 from rest_framework import generics
 from models.delivery_service_model.models import DeliveryService
-from api.packaging_service.serializers import DeliveryServiceSerializer
+from .serializers import DeliveryServiceSerializer
 
 
 class DeliveryServiceListAPIView(generics.ListAPIView):
