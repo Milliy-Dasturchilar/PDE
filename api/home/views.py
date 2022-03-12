@@ -14,6 +14,10 @@ def overview(request):
         'Company': {
             'Companies list': url + 'company/',
             'Company detail': url + 'company/{id}/',
-        }
+        },
+        'Packaging Service': {
+            'Packaging Services list': url + 'packaging-service/',
+            'Packaging Service detail': url + 'packaging-service/{id}/',
+        },
     }
     return Response(router)
