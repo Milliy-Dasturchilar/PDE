@@ -33,8 +33,8 @@ class Company(models.Model):
 
     def save(self, *args, **kwargs):
         if self.logo_img:
-            self.logo_img.name = 'logo_' + str(self.id + 1111) + \
-                                 '_.' + self.logo_img.name.split('.')[-1]
+            self.logo_img.name = 'logo_' + self.name.lower() + '_.' + \
+                self.logo_img.name.split('.')[-1]
 
         super(Company, self).save(*args, **kwargs)
 
