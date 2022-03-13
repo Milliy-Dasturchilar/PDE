@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
+{% load tailwind_filters %}
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{ title }}</title>
 </head>
+
 <body>
-$END$
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="min-h-screen bg-gray-100 py-20 flex items-center">
+        <div class="container mx-auto md:max-w-xl max-w-md shadow-md hover:shadow-lg transition duration-300">
+            <div class="py-12 p-10 bg-white rounded-xl">
+                <h1 class="text-2xl mb-10 text-center">{{ title }}</h1>
+                <span class="text-red-600 text-sm">{{ errors }}</span>
+                {{ form|crispy }}
+                <button class="w-full mt-6 text-green-50 font-bold bg-green-600 py-3 rounded-md hover:bg-green-500 transition duration-300">
+                    SAQLASH
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
 </body>
+
 </html>

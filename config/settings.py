@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     # 3rd apps
     'rest_framework',
     'corsheaders',
+    'crispy_forms',
+    'crispy_tailwind',
 
     # local apps
     'models.company_model.apps.CompanyModelConfig',
@@ -152,3 +154,7 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"

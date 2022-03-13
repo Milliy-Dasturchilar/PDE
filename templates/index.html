@@ -1,10 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="uz">
+{% load static %}
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{ company.name }}</title>
 </head>
-<body>
-$END$
+<body class="bg-zinc-200">
+<div class="md:flex md:min-h-screen">
+    <div class="p-3 bg-white md:my-8 md:w-1/4 md:p-10 md:rounded-r-3xl">
+        <div class="flex items-center justify-between">
+            <img class="w-1/4" src="https://www.iconpacks.net/icons/2/free-user-icon-3297-thumb.png"
+                 alt="{{ user.first_name }}"/>
+            <div class="w-3/4 text-right">
+                <h1 class="text-xl font-bold">{{ user.first_name }} {{ user.last_name }}</h1>
+                <p class="">{{ user.username }}</p>
+                <a class="text-blue-500 underline" href="{% url 'logout_user' %}">chiqish</a>
+            </div>
+        </div>
+        <hr class="block my-5">
+        <div>
+            <h1 class="text-2xl text-green-900 font-bold text-center">{{ "Sizning kompaniyangiz" }}</h1>
+            <div class="flex justify-between items-center">
+                <div class="w-1/2">
+                    <h1 class="text-2xl font-bold">{{ company.name }}</h1>
+                    <p class="text-zinc-500 mt-4">{{ company.phone_number }}</p>
+                </div>
+                <img class="w-1/2" src="{{ company.logo_img.url }}" alt="{{ company.name }}">
+            </div>
+            <p class="text-zinc-500">{{ company.address }}</p>
+        </div>
+    </div>
+    <div class="p-3 md:min-h-screen md:w-3/4 md:p-10">
+        <div class="text-center">
+            <a href="{% url 'index' %}" class="text-3xl text-green-900 text-center font-bold mt-4 mb-3 md:mt-2">Xizmatlar bo'limi</a>
+            <span class="text-3xl text-green-900 text-center font-bold mt-4 mb-3 md:mt-2"> / </span>
+            <a href="{% url 'index' %}" class="text-3xl text-green-900 text-center font-bold mt-4 mb-3 md:mt-2">Buyurtmalar bo'limi</a>
+        </div>
+        <div>
+            <div class="border border-zinc-400 rounded-lg p-5 my-8">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-green-700 text-xl">{{ "Qadoqlash xizmati" }}</span>
+                    <a href="{% url 'add_packaging_service' %}" class="text-white p-2 md:px-8 md:py-3 rounded bg-green-700"> Xizmat qo`shish</a>
+                </div>
+                <div>
+                    {% for service in packaging_services %}
+                        <div class="mt-5 p-4 bg-white rounded md:flex md:items-center">
+                            <img class="w-1/4" src="{{ service.example_image.url }}" alt="{{ service.product_name }}">
+                            <div class="w-3/4 md:p-10">
+                                <div class="md:flex justify-between items-center">
+                                    <ul class="mt-5 md:mt-0">
+                                        <li class="text-lg text-zinc-500">Maxsulot turi
+                                            : {{ service.product_type }}</li>
+                                        <li class="text-lg text-zinc-500">Maxsulot nomi
+                                            : {{ service.product_name }}</li>
+                                    </ul>
+                                    <ul class="mt-5 md:mt-0">
+                                        <li class="text-lg text-zinc-500">Qadoqlash turi
+                                            : {{ service.package_type }}</li>
+                                        <li class="text-lg text-zinc-500">Xizmat narxi(kg)
+                                            : {{ service.price_per_kg }}</li>
+                                    </ul>
+                                    <ul class="mt-5 md:mt-0">
+                                        <li>
+                                            <a href="{% url 'update_packaging_service' service.id %}" class="text-blue-500 text-lg">Tahrirlash</a>
+                                        </li>
+                                        <li>
+                                            <a onclick="return confirm(`Rostan ham ushbu xizmatni o\'chirmoqchimisiz?`)"
+                                               href="{% url 'delete_packaging_service' service.id %}"
+                                               class="text-blue-500 text-lg">O'chirish</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="text-lg mt-5 text-zinc-500">Xizmat ko'rsatish
+                                    hududi: {{ service.service_area }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="border border-zinc-400 rounded-lg p-5 my-8">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-green-700 text-xl">{{ "Yetkazib berish xizmati" }}</span>
+                    <a href="" class="text-white p-2 md:px-8 md:py-3 rounded bg-green-700"> Xizmat qo`shish</a>
+                </div>
+                {#            <div>#}
+                {#                {% for service in packaging_services %}#}
+                {#                    <div class="mt-5 p-4 bg-white rounded md:flex md:items-center">#}
+                {#                        <img class="w-1/4" src="{{ service.example_image.url }}" alt="{{ service.product_name }}">#}
+                {#                        <div class="w-3/4 md:p-10">#}
+                {#                            <div class="md:flex justify-between items-center">#}
+                {#                                <ul class="mt-5 md:mt-0">#}
+                {#                                    <li class="text-lg text-zinc-500">Maxsulot turi : {{ service.product_type }}</li>#}
+                {#                                    <li class="text-lg text-zinc-500">Maxsulot nomi : {{ service.product_name }}</li>#}
+                {#                                </ul>#}
+                {#                                <ul class="mt-5 md:mt-0">#}
+                {#                                    <li class="text-lg text-zinc-500">Qadoqlash turi : {{ service.package_type }}</li>#}
+                {#                                    <li class="text-lg text-zinc-500">Xizmat narxi(kg) : {{ service.price_per_kg }}</li>#}
+                {#                                </ul>#}
+                {#                                <ul class="mt-5 md:mt-0">#}
+                {#                                    <li>#}
+                {#                                        <a href="" class="text-blue-500 text-lg">Tahrirlash</a>#}
+                {#                                    </li>#}
+                {#                                    <li>#}
+                {#                                        <a onclick="return confirm(`Rostan ham ushbu xizmatni o\'chirmoqchimisiz?`)" href="{% url 'delete_packaging_service' service.id %}" class="text-blue-500 text-lg">O'chirish</a>#}
+                {#                                    </li>#}
+                {#                                </ul>#}
+                {#                            </div>#}
+                {#                            <p class="text-lg mt-5 text-zinc-500">Xizmat ko'rsatish#}
+                {#                                hududi: {{ service.service_area }}</p>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                {% endfor %}#}
+                {#            </div>#}
+            </div>
+            <div class="border border-zinc-400 rounded-lg p-5 my-8">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-green-700 text-xl">{{ "Export qilish xizmati" }}</span>
+                    <a href="" class="text-white p-2 md:px-8 md:py-3 rounded bg-green-700"> Xizmat qo`shish</a>
+                </div>
+                {#            <div>#}
+                {#                {% for service in packaging_services %}#}
+                {#                    <div class="mt-5 p-4 bg-white rounded md:flex md:items-center">#}
+                {#                        <img class="w-1/4" src="{{ service.example_image.url }}" alt="{{ service.product_name }}">#}
+                {#                        <div class="w-3/4 md:p-10">#}
+                {#                            <div class="md:flex justify-between items-center">#}
+                {#                                <ul class="mt-5 md:mt-0">#}
+                {#                                    <li class="text-lg text-zinc-500">Maxsulot turi : {{ service.product_type }}</li>#}
+                {#                                    <li class="text-lg text-zinc-500">Maxsulot nomi : {{ service.product_name }}</li>#}
+                {#                                </ul>#}
+                {#                                <ul class="mt-5 md:mt-0">#}
+                {#                                    <li class="text-lg text-zinc-500">Qadoqlash turi : {{ service.package_type }}</li>#}
+                {#                                    <li class="text-lg text-zinc-500">Xizmat narxi(kg) : {{ service.price_per_kg }}</li>#}
+                {#                                </ul>#}
+                {#                                <ul class="mt-5 md:mt-0">#}
+                {#                                    <li>#}
+                {#                                        <a href="" class="text-blue-500 text-lg">Tahrirlash</a>#}
+                {#                                    </li>#}
+                {#                                    <li>#}
+                {#                                        <a onclick="return confirm(`Rostan ham ushbu xizmatni o\'chirmoqchimisiz?`)" href="{% url 'delete_packaging_service' service.id %}" class="text-blue-500 text-lg">O'chirish</a>#}
+                {#                                    </li>#}
+                {#                                </ul>#}
+                {#                            </div>#}
+                {#                            <p class="text-lg mt-5 text-zinc-500">Xizmat ko'rsatish#}
+                {#                                hududi: {{ service.service_area }}</p>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                {% endfor %}#}
+                {#            </div>#}
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Login</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>O'z kompaniyangizni kiriting</title>
 </head>
 
 <body>
-  <form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="min-h-screen bg-gray-100 flex items-center">
-      <div class="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
-        <div class="py-12 p-10 bg-white rounded-xl">
-          <div class="mb-6">
-            <label class="mr-4 text-gray-700 font-bold inline-block mb-2" for="name">Telefon raqam</label>
-            <input type="text" name="username"
-              class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-              placeholder="+123456789" />
-          </div>
-          <div class="">
-            <label class="mr-4 text-gray-700 font-bold inline-block mb-2" for="name">Parol</label>
-            <input type="password" name="password"
-              class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-              placeholder="* * * * * *" />
-          </div>
-          <span
-            class="text-sm text-gray-700 inline-block mt-4 hover:text-indigo-600 hover:underline hover:cursor-pointer transition duration-200">forget
-            password</span>
-          <button
-            class="w-full mt-6 text-indigo-50 font-bold bg-green-600 py-3 rounded-md hover:bg-green-500 transition duration-300">KIRISH</button>
+        <div class="container mx-auto md:max-w-xl max-w-md shadow-md hover:shadow-lg transition duration-300">
+            <div class="py-12 p-10 bg-white rounded-xl">
+                <h1 class="text-2xl mb-10 text-center">Kompaniyangiz ma'lumotlarini kiriting</h1>
+                <div class="mb-6">
+                    <label class="text-gray-700 font-bold inline-block mb-2" for="name">Kompaniya nomi</label>
+                    <input type="text" name="name" id="name"
+                           class="border bg-gray-100 py-2 px-4 w-full outline-none focus:ring-2 focus:ring-green-400 rounded"
+                           placeholder="MDevs group"/>
+                </div>
+                <div class="mb-6">
+                    <label class="text-gray-700 font-bold inline-block mb-2" for="phone_number">Telefon raqami</label>
+                    <input type="text" name="phone_number" id="phone_number"
+                           class="border bg-gray-100 py-2 px-4 w-full outline-none focus:ring-2 focus:ring-green-400 rounded"
+                           placeholder="+123456789"/>
+                </div>
+                <div class="mb-6">
+                    <label class="text-gray-700 font-bold inline-block mb-2" for="address">Manzili</label>
+                    <textarea type="text" name="address" id="address" placeholder="Manzili"
+                              class="border bg-gray-100 py-2 px-4 w-full outline-none focus:ring-2 focus:ring-green-400 rounded"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="text-gray-700 font-bold inline-block mb-2" for="file">Kompaniya logosi</label>
+                    <input type="file" name="logo_img" id="file" accept="image/*"
+                           class="border bg-gray-100 py-2 px-4 w-full outline-none focus:ring-2 focus:ring-green-400 rounded"/>
+                </div>
+                <button
+                        class="w-full mt-6 text-green-50 font-bold bg-green-600 py-3 rounded-md hover:bg-green-500 transition duration-300">
+                    SAQLASH
+                </button>
+            </div>
         </div>
-      </div>
     </div>
-  </form>
+</form>
 </body>
 
 </html>
