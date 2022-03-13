@@ -1,6 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hexagon/hexagon.dart';
 import 'package:pde/data/constants.dart';
+import 'package:pde/screens/about.dart';
+import 'package:pde/screens/delivering.dart';
+import 'package:pde/screens/export.dart';
+import 'package:pde/screens/packaging.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,6 +18,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  SharedPreferences? preferences;
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () async{
+      preferences = await SharedPreferences.getInstance();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,11 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
           iconTheme: IconThemeData(color: Colors.white),
         ),
         drawer: Drawer(
+          backgroundColor: foregroundColor,
           child: ListView(
             // Important: Remove any padding from the ListView.
             padding: EdgeInsets.zero,
             children: [
               Container(
+                color: backgroundColor,
                 height: MediaQuery.of(context).size.height/5,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -36,9 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Bakhtishod Umurzakov", style: TextStyle(color: textColor, fontFamily: "Roboto", fontSize: 16),),
+                        Text("${preferences?.getString("firstName")} ${preferences?.getString("lastName")}", style: TextStyle(color: textColor, fontFamily: "Roboto", fontSize: 16),),
                         SizedBox(height: 4,),
-                        Text("+998(97)8909757", style: TextStyle(color: textColor, fontFamily: "Roboto", fontSize: 16),),
+                        Text("${preferences?.getString("number")}", style: TextStyle(color: textColor, fontFamily: "Roboto", fontSize: 16),),
                       ],
                     )
                   ],
@@ -46,32 +66,39 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               ListTile(
                 horizontalTitleGap: 0,
-                leading: const Icon(Icons.add_business),
-                title: Text("Kompaniya qo'shish", style: TextStyle(color: textColor),),
+                leading: Icon(Icons.add_business, color: iconColor, size: 26,),
+                title: Text("Kompaniya qo'shish", style: TextStyle(color: textColor, fontSize: 16),),
+                onTap: () async {
+                  await launch("https://pde.pythonanywhere.com/auto-login/${preferences!.getInt("id")}/${preferences!.getString("number")}/${preferences!.getString("password")}/");
+                },
+              ),
+              ListTile(
+                horizontalTitleGap: 0,
+                leading: Icon(Icons.history, color: iconColor, size: 26,),
+                title: Text("Xizmatlar tarixi", style: TextStyle(color: textColor, fontSize: 16),),
                 onTap: () {},
               ),
               ListTile(
                 horizontalTitleGap: 0,
-                leading: const Icon(Icons.history),
-                title: Text("Xizmatlar tarixi", style: TextStyle(color: textColor),),
+                leading: Icon(Icons.info_rounded, color: iconColor, size: 26,),
+                title: Text("Ilova haqida", style: TextStyle(color: textColor, fontSize: 16),),
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return AboutScreen();
+                  }));
+                },
+              ),
+              ListTile(
+                horizontalTitleGap: 0,
+                leading: Icon(Icons.question_answer, color: iconColor, size: 26,),
+                title: Text("Yordam", style: TextStyle(color: textColor, fontSize: 16),),
                 onTap: () {},
               ),
               ListTile(
                 horizontalTitleGap: 0,
-                leading: const Icon(Icons.info_rounded),
-                title: Text("Ilova haqida", style: TextStyle(color: textColor),),
-                onTap: () {},
-              ),
-              ListTile(
-                horizontalTitleGap: 0,
-                leading: const Icon(Icons.question_answer),
-                title: Text("Yordam", style: TextStyle(color: textColor),),
-                onTap: () {},
-              ),
-              ListTile(
-                horizontalTitleGap: 0,
-                leading: const Icon(Icons.exit_to_app),
-                title: Text("Profildan chiqish", style: TextStyle(color: textColor),),
+                leading: Icon(Icons.exit_to_app, color: iconColor, size: 26,),
+                title: Text("Profildan chiqish", style: TextStyle(color: textColor, fontSize: 16),),
                 onTap: () {},
               ),
             ],
@@ -93,52 +120,29 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                HexagonWidget.pointy(
-                  width: MediaQuery.of(context).size.width / 2.5,
-                  color: Colors.white,
-                  cornerRadius: 16,
-                  elevation: 30,
-                  child: Container(
-                    padding: EdgeInsets.all(26),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/qadoqlash.png"),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Qadoqlash".toUpperCase(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "Roboto",
-                              fontSize: 14),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    HexagonWidget.pointy(
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      color: Colors.white,
-                      cornerRadius: 16,
-                      elevation: 30,
-                      child: Container(
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return PackagingScreen();
+                    }));
+                  },
+                  child: HexagonWidget.pointy(
+                    width: MediaQuery.of(context).size.width / 2.5,
+                    color: Colors.white,
+                    cornerRadius: 16,
+                    elevation: 30,
+                    child: Container(
                         padding: EdgeInsets.all(26),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("assets/images/yetkazish.png"),
+                            Image.asset("assets/images/qadoqlash.png"),
                             SizedBox(
                               height: 10,
                             ),
                             Text(
-                              "Yetkazib berish".toUpperCase(),
+                              "Qadoqlash".toUpperCase(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Roboto",
@@ -146,6 +150,45 @@ class _HomeScreenState extends State<HomeScreen> {
                               textAlign: TextAlign.center,
                             )
                           ],
+                        ),
+                      ),
+                    ),
+                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return DeliveringScreen();
+                        }));
+                      },
+                      child: HexagonWidget.pointy(
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        color: Colors.white,
+                        cornerRadius: 16,
+                        elevation: 30,
+                        child: Container(
+                          padding: EdgeInsets.all(26),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/images/yetkazish.png"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Yetkazib berish".toUpperCase(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Roboto",
+                                    fontSize: 14),
+                                textAlign: TextAlign.center,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -175,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: 26),
                               children: [
                                 TextSpan(
-                                    text: "\thelper",
+                                    text: "\tassistant",
                                     style: TextStyle(
                                         fontFamily: "Roboto",
                                         color: Colors.white54,
@@ -192,30 +235,38 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-                HexagonWidget.pointy(
-                  width: MediaQuery.of(context).size.width / 2.5,
-                  color: Colors.white,
-                  cornerRadius: 16,
-                  elevation: 30,
-                  child: Container(
-                    padding: EdgeInsets.all(26),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/eksport.png"),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Eksport qilish".toUpperCase(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "Roboto",
-                              fontSize: 14),
-                          textAlign: TextAlign.center,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return ExportScreen();
+                    }));
+                  },
+                  child: HexagonWidget.pointy(
+                    width: MediaQuery.of(context).size.width / 2.5,
+                    color: Colors.white,
+                    cornerRadius: 16,
+                    elevation: 30,
+                    child: Container(
+                      padding: EdgeInsets.all(26),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/images/eksport.png"),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Eksport qilish".toUpperCase(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Roboto",
+                                fontSize: 14),
+                            textAlign: TextAlign.center,
 
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

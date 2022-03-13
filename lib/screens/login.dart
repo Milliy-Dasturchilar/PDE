@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:http/http.dart';
 import 'package:pde/data/constants.dart';
 import 'package:pde/screens/auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           alignment: Alignment.center,
-          color: backgroundColor,
+          color: foregroundColor,
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Column(
@@ -58,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 32),
                           children: [
                             TextSpan(
-                                text: "\thelper",
+                                text: "\tassistant",
                                 style: TextStyle(
                                     fontFamily: "Roboto",
                                     color: Colors.black54,
@@ -108,6 +111,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontFamily: "Roboto"),
                         controller: _numberController,
                         decoration: InputDecoration(
+                          fillColor: inputBackgroundColor,
+                          filled: true,
                           contentPadding: EdgeInsets.all(14),
                           hintText: "Telefon raqam",
                           hintStyle:
@@ -136,6 +141,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontFamily: "Roboto"),
                         controller: _passwordController,
                         decoration: InputDecoration(
+                          fillColor: inputBackgroundColor,
+                          filled: true,
                           contentPadding: EdgeInsets.all(14),
                           hintText: "Parolni kiriting",
                           hintStyle:
@@ -158,8 +165,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 50,
                           child: RaisedButton(
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                side: BorderSide(color: Colors.white)),
+                              borderRadius: BorderRadius.circular(8),
+                              // side: BorderSide(color: Colors.white)
+                            ),
                             color: textColor,
                             onPressed: () async {
                               if (_numberController.text.isEmpty ||
@@ -180,14 +188,60 @@ class _LoginScreenState extends State<LoginScreen> {
                                   reverseCurve: Curves.linear,
                                 );
                               } else {
+                                String username = _numberController.text;
+                                String password = _passwordController.text;
+                                String basicAuth = 'Basic ' +
+                                    base64Encode(
+                                        utf8.encode('$username:$password'));
+                                print(basicAuth);
+
+                                Response r = await post(
+                                    Uri.parse(
+                                        "https://pde.pythonanywhere.com/api/users/check-user/"),
+                                    headers: <String, String>{
+                                      'Content-Type': 'application/json; charset=UTF-8',
+                                      'authorization': basicAuth
+                                    }, body: jsonEncode(<String, String>{
+                                  'username': username,
+                                  'password': password,
+                                }),
+                                );
+                                print(r.statusCode);
+                                print(r.body);
+                                var jsonData = jsonDecode(r.body);
+                                // print(jsonData["first_name"]);
+                                // print(r.body[]);
+                                if (r.statusCode == 200) {
                                   final SharedPreferences sharedPreferences =
                                       await SharedPreferences.getInstance();
+                                  sharedPreferences.setInt("id", jsonData["id"]);
+                                  sharedPreferences.setString("firstName", jsonData["first_name"]);
+                                  sharedPreferences.setString("lastName", jsonData["last_name"]);
                                   sharedPreferences.setString(
                                       "number", _numberController.text);
                                   sharedPreferences.setString(
                                       "password", _passwordController.text);
                                   Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              HomeScreen()));
+                                } else {
+                                  showToast(
+                                    "Telefon raqam yoki parol noto'g'ri kiritildi!\nIltimos qaytadan urinib ko'ring!",
+                                    context: context,
+                                    textStyle: TextStyle(
+                                        color: Colors.white, fontSize: 14),
+                                    backgroundColor: Colors.red,
+                                    animation:
+                                        StyledToastAnimation.slideFromBottom,
+                                    reverseAnimation: StyledToastAnimation.fade,
+                                    position: StyledToastPosition.bottom,
+                                    animDuration: Duration(seconds: 1),
+                                    duration: Duration(seconds: 2),
+                                    curve: Curves.elasticOut,
+                                    reverseCurve: Curves.linear,
+                                  );
+                                }
                               }
                             },
                             child: Row(

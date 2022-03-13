@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: foregroundColor,
       body: Container(
         child: Center(
           child: Column(
@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         fontFamily: "Roboto", color: textColor, fontSize: 36),
                     children: [
                       TextSpan(
-                          text: "\thelper",
+                          text: "\tassistant",
                           style: TextStyle(
                               fontFamily: "Roboto",
                               color: Colors.black54,

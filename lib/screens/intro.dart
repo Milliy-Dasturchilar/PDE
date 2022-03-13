@@ -17,8 +17,8 @@ class _IntroScreenState extends State<IntroScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-            color: Colors.white,
             child: IntroductionScreen(
+              globalBackgroundColor: foregroundColor,
               pages: [
                 PageViewModel(
                     title: "QADOQLASH",
@@ -31,7 +31,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     body: "Tezkor yetkazib berish - qulay narxlarda!",
                     image: buildImage("assets/images/yetkazish.png")),
                 PageViewModel(
-                    title: "EXPORT QILISH",
+                    title: "EKPORT QILISH",
                     decoration: getPageDecoration(),
                     body: "You can set alarm for feeding time of your pet",
                     image: buildImage("assets/images/eksport.png")),
@@ -84,7 +84,7 @@ class _IntroScreenState extends State<IntroScreen> {
   }
 
   Widget buildImage(String path) => Center(
-        child: Image.asset(path, width: 250),
+        child: Image.asset(path, width: 300),
       );
 
   PageDecoration getPageDecoration() => PageDecoration(
@@ -92,6 +92,6 @@ class _IntroScreenState extends State<IntroScreen> {
       bodyTextStyle: TextStyle(fontSize: 20, color: Colors.black45),
       // descriptionPadding: EdgeInsets.all(16),
       // imagePadding: EdgeInsets.all(30),
-      // pageColor: Colors.white
+      // pageColor: foregroundColor,
   );
 }

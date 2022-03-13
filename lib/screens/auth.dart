@@ -29,7 +29,7 @@ class _AuthScreenState extends State<AuthScreen> {
       child: Scaffold(
         body: Container(
           alignment: Alignment.center,
-          color: backgroundColor,
+          color: foregroundColor,
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Column(
@@ -59,7 +59,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 fontSize: 32),
                             children: [
                               TextSpan(
-                                  text: "\thelper",
+                                  text: "\tassistant",
                                   style: TextStyle(
                                       fontFamily: "Roboto",
                                       color: Colors.black54,
@@ -109,6 +109,9 @@ class _AuthScreenState extends State<AuthScreen> {
                               fontFamily: "Roboto"),
                           controller: _nameController,
                           decoration: InputDecoration(
+                            fillColor: inputBackgroundColor,
+                            filled: true,
+                            // hoverColor: inputBackgroundColor,
                             contentPadding: EdgeInsets.all(14),
                             hintText: "Ism",
                             hintStyle:
@@ -137,6 +140,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               fontFamily: "Roboto"),
                           controller: _surnameController,
                           decoration: InputDecoration(
+                            fillColor: inputBackgroundColor,
+                            filled: true,
                             contentPadding: EdgeInsets.all(14),
                             hintText: "Familiya",
                             hintStyle:
@@ -165,6 +170,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               fontFamily: "Roboto"),
                           controller: _numberController,
                           decoration: InputDecoration(
+                            fillColor: inputBackgroundColor,
+                            filled: true,
                             contentPadding: EdgeInsets.all(14),
                             hintText: "Telefon raqam",
                             hintStyle:
@@ -193,6 +200,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               fontFamily: "Roboto"),
                           controller: _passwordController,
                           decoration: InputDecoration(
+                            fillColor: inputBackgroundColor,
+                            filled: true,
                             contentPadding: EdgeInsets.all(14),
                             hintText: "Parolni kiriting",
                             hintStyle:
@@ -221,6 +230,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               fontFamily: "Roboto"),
                           controller: _verifyPasswordController,
                           decoration: InputDecoration(
+                            fillColor: inputBackgroundColor,
+                            filled: true,
                             contentPadding: EdgeInsets.all(14),
                             hintText: "Parolni tasdiqlang",
                             hintStyle:
@@ -241,10 +252,12 @@ class _AuthScreenState extends State<AuthScreen> {
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width / 1.5,
                             height: 50,
-                            child: RaisedButton(
+                            child:
+                            RaisedButton(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
-                                  side: BorderSide(color: Colors.white)),
+                                  // side: BorderSide(color: Colors.white)
+                              ),
                               color: textColor,
                               onPressed: () async {
                                 if (_nameController.text.isEmpty ||
