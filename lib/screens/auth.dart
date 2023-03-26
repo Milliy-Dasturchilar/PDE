@@ -31,7 +31,7 @@ class _AuthScreenState extends State<AuthScreen> {
           alignment: Alignment.center,
           color: foregroundColor,
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         width: 80,
                         height: 80,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       RichText(
@@ -58,13 +58,13 @@ class _AuthScreenState extends State<AuthScreen> {
                                 color: textColor,
                                 fontSize: 32),
                             children: [
-                              TextSpan(
+                              const TextSpan(
                                   text: "\tassistant",
                                   style: TextStyle(
                                       fontFamily: "Roboto",
                                       color: Colors.black54,
                                       fontSize: 20)),
-                              TextSpan(
+                              const TextSpan(
                                   text: "\npowered by MDevs Group",
                                   style: TextStyle(
                                       fontFamily: "Roboto",
@@ -75,17 +75,17 @@ class _AuthScreenState extends State<AuthScreen> {
                     ],
                     // )
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         //Ro'yxatdan o'tish
-                        Text(
+                        const Text(
                           "Ro'yxatdan o'tish",
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -93,7 +93,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               fontSize: 28,
                               fontFamily: "Roboto"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 18,
                         ),
                         TextField(
@@ -103,7 +103,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           }),
                           textAlign: TextAlign.left,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: "Roboto"),
@@ -112,10 +112,10 @@ class _AuthScreenState extends State<AuthScreen> {
                             fillColor: inputBackgroundColor,
                             filled: true,
                             // hoverColor: inputBackgroundColor,
-                            contentPadding: EdgeInsets.all(14),
+                            contentPadding: const EdgeInsets.all(14),
                             hintText: "Ism",
-                            hintStyle:
-                                TextStyle(fontSize: 18, color: Colors.black26),
+                            hintStyle: const TextStyle(
+                                fontSize: 18, color: Colors.black26),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: textColor),
                             ),
@@ -124,7 +124,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextField(
@@ -134,7 +134,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           }),
                           textAlign: TextAlign.left,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: "Roboto"),
@@ -142,10 +142,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           decoration: InputDecoration(
                             fillColor: inputBackgroundColor,
                             filled: true,
-                            contentPadding: EdgeInsets.all(14),
+                            contentPadding: const EdgeInsets.all(14),
                             hintText: "Familiya",
-                            hintStyle:
-                                TextStyle(fontSize: 18, color: Colors.black26),
+                            hintStyle: const TextStyle(
+                                fontSize: 18, color: Colors.black26),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: textColor),
                             ),
@@ -154,7 +154,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextField(
@@ -164,7 +164,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           }),
                           textAlign: TextAlign.left,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: "Roboto"),
@@ -172,10 +172,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           decoration: InputDecoration(
                             fillColor: inputBackgroundColor,
                             filled: true,
-                            contentPadding: EdgeInsets.all(14),
+                            contentPadding: const EdgeInsets.all(14),
                             hintText: "Telefon raqam",
-                            hintStyle:
-                                TextStyle(fontSize: 18, color: Colors.black26),
+                            hintStyle: const TextStyle(
+                                fontSize: 18, color: Colors.black26),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: textColor),
                             ),
@@ -184,7 +184,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextField(
@@ -194,7 +194,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           }),
                           textAlign: TextAlign.left,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: "Roboto"),
@@ -202,10 +202,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           decoration: InputDecoration(
                             fillColor: inputBackgroundColor,
                             filled: true,
-                            contentPadding: EdgeInsets.all(14),
+                            contentPadding: const EdgeInsets.all(14),
                             hintText: "Parolni kiriting",
-                            hintStyle:
-                                TextStyle(fontSize: 18, color: Colors.black26),
+                            hintStyle: const TextStyle(
+                                fontSize: 18, color: Colors.black26),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: textColor),
                             ),
@@ -214,7 +214,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextField(
@@ -224,7 +224,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           }),
                           textAlign: TextAlign.left,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: "Roboto"),
@@ -232,10 +232,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           decoration: InputDecoration(
                             fillColor: inputBackgroundColor,
                             filled: true,
-                            contentPadding: EdgeInsets.all(14),
+                            contentPadding: const EdgeInsets.all(14),
                             hintText: "Parolni tasdiqlang",
-                            hintStyle:
-                                TextStyle(fontSize: 18, color: Colors.black26),
+                            hintStyle: const TextStyle(
+                                fontSize: 18, color: Colors.black26),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: textColor),
                             ),
@@ -244,7 +244,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Container(
@@ -252,13 +252,14 @@ class _AuthScreenState extends State<AuthScreen> {
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width / 1.5,
                             height: 50,
-                            child:
-                            RaisedButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                  // side: BorderSide(color: Colors.white)
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    side:
+                                        const BorderSide(color: Colors.white)),
+                                backgroundColor: textColor,
                               ),
-                              color: textColor,
                               onPressed: () async {
                                 if (_nameController.text.isEmpty ||
                                     _surnameController.text.isEmpty ||
@@ -268,15 +269,15 @@ class _AuthScreenState extends State<AuthScreen> {
                                   showToast(
                                     "Ma'lumotlarni to'ldirib, qaytadan urinib ko'ring!",
                                     context: context,
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                         color: Colors.white, fontSize: 14),
                                     backgroundColor: Colors.red,
                                     animation:
                                         StyledToastAnimation.slideFromBottom,
                                     reverseAnimation: StyledToastAnimation.fade,
                                     position: StyledToastPosition.bottom,
-                                    animDuration: Duration(seconds: 1),
-                                    duration: Duration(seconds: 2),
+                                    animDuration: const Duration(seconds: 1),
+                                    duration: const Duration(seconds: 2),
                                     curve: Curves.elasticOut,
                                     reverseCurve: Curves.linear,
                                   );
@@ -290,7 +291,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              HomeScreen()));
+                                              const HomeScreen()));
                                 }
                               },
                               child: Row(
@@ -298,7 +299,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 children: [
                                   Text(
                                     "Ro'yxatdan o'tish".toUpperCase(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 14,
                                         fontFamily: "Roboto"),
@@ -311,7 +312,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
@@ -321,7 +322,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       textAlign: TextAlign.center,
                       text: TextSpan(
                           text: "Allaqachon profilingiz bormi?",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontFamily: "Roboto",
                               color: Colors.black45,
                               fontSize: 16),
@@ -333,7 +334,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                     Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                LoginScreen()));
+                                                const LoginScreen()));
                                   },
                                 style: TextStyle(
                                     fontFamily: "Roboto",

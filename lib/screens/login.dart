@@ -18,10 +18,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // final _controller = TextEditingController();
   final _numberController = TextEditingController();
   final _passwordController = TextEditingController();
-  String _text = "0";
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
           alignment: Alignment.center,
           color: foregroundColor,
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 80,
                       height: 80,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     RichText(
@@ -59,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontFamily: "Roboto",
                               color: textColor,
                               fontSize: 32),
-                          children: [
+                          children: const [
                             TextSpan(
                                 text: "\tassistant",
                                 style: TextStyle(
@@ -77,17 +75,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                   // )
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       //Ro'yxatdan o'tish
-                      Text(
+                      const Text(
                         "Kirish",
                         textAlign: TextAlign.left,
                         style: TextStyle(
@@ -95,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 28,
                             fontFamily: "Roboto"),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextField(
@@ -105,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         }),
                         textAlign: TextAlign.left,
                         maxLines: 1,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 18,
                             fontFamily: "Roboto"),
@@ -113,10 +111,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: InputDecoration(
                           fillColor: inputBackgroundColor,
                           filled: true,
-                          contentPadding: EdgeInsets.all(14),
+                          contentPadding: const EdgeInsets.all(14),
                           hintText: "Telefon raqam",
                           hintStyle:
-                              TextStyle(fontSize: 18, color: Colors.black26),
+                              const TextStyle(fontSize: 18, color: Colors.black26),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: textColor),
                           ),
@@ -125,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextField(
@@ -135,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         }),
                         textAlign: TextAlign.left,
                         maxLines: 1,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 18,
                             fontFamily: "Roboto"),
@@ -143,10 +141,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: InputDecoration(
                           fillColor: inputBackgroundColor,
                           filled: true,
-                          contentPadding: EdgeInsets.all(14),
+                          contentPadding: const EdgeInsets.all(14),
                           hintText: "Parolni kiriting",
                           hintStyle:
-                              TextStyle(fontSize: 18, color: Colors.black26),
+                              const TextStyle(fontSize: 18, color: Colors.black26),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: textColor),
                           ),
@@ -155,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
@@ -163,27 +161,28 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width / 1.5,
                           height: 50,
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              // side: BorderSide(color: Colors.white)
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                // side: BorderSide(color: Colors.white)
+                              ), backgroundColor: textColor,
                             ),
-                            color: textColor,
                             onPressed: () async {
                               if (_numberController.text.isEmpty ||
                                   _passwordController.text.isEmpty) {
                                 showToast(
                                   "Ma'lumotlarni to'ldirib, qaytadan urinib ko'ring!",
                                   context: context,
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       color: Colors.white, fontSize: 14),
                                   backgroundColor: Colors.red,
                                   animation:
                                       StyledToastAnimation.slideFromBottom,
                                   reverseAnimation: StyledToastAnimation.fade,
                                   position: StyledToastPosition.bottom,
-                                  animDuration: Duration(seconds: 1),
-                                  duration: Duration(seconds: 2),
+                                  animDuration: const Duration(seconds: 1),
+                                  duration: const Duration(seconds: 2),
                                   curve: Curves.elasticOut,
                                   reverseCurve: Curves.linear,
                                 );
@@ -224,20 +223,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              HomeScreen()));
+                                              const HomeScreen()));
                                 } else {
                                   showToast(
                                     "Telefon raqam yoki parol noto'g'ri kiritildi!\nIltimos qaytadan urinib ko'ring!",
                                     context: context,
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                         color: Colors.white, fontSize: 14),
                                     backgroundColor: Colors.red,
                                     animation:
                                         StyledToastAnimation.slideFromBottom,
                                     reverseAnimation: StyledToastAnimation.fade,
                                     position: StyledToastPosition.bottom,
-                                    animDuration: Duration(seconds: 1),
-                                    duration: Duration(seconds: 2),
+                                    animDuration: const Duration(seconds: 1),
+                                    duration: const Duration(seconds: 2),
                                     curve: Curves.elasticOut,
                                     reverseCurve: Curves.linear,
                                   );
@@ -249,7 +248,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               children: [
                                 Text(
                                   "Kirish".toUpperCase(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 14,
                                       fontFamily: "Roboto"),
@@ -262,7 +261,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
@@ -272,7 +271,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                         text: "Profil mavjud emasmi?",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontFamily: "Roboto",
                             color: Colors.black45,
                             fontSize: 16),
@@ -284,7 +283,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              AuthScreen()));
+                                              const AuthScreen()));
                                 },
                               style: TextStyle(
                                   fontFamily: "Roboto",

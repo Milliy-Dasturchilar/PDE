@@ -34,62 +34,62 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Container(
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
           child: Column(
             children: [
               Card(
                 elevation: 8,
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(20, 30, 30, 30),
+                  margin: const EdgeInsets.fromLTRB(20, 30, 30, 30),
                   child: Column(
                     children: [
                       Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             "Mashina turi: ISUZU",
                             style: TextStyle(color: Colors.black, fontSize: 14),
                           )),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             "Xizmat doirasi: Respublika bo'yicha",
                             style: TextStyle(color: Colors.black, fontSize: 14),
                           )),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             "Xizmat narxi: 50000 so’m/kun",
                             style: TextStyle(color: Colors.black, fontSize: 14),
                           )),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             "Xizmat ko'rsatuvchi: MDevs Group",
                             style: TextStyle(color: Colors.black, fontSize: 14),
                           )),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             "Eng kam masofa: 2 km kg",
                             style: TextStyle(color: Colors.black, fontSize: 14),
                           )),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             "Bog’lanish: +998975555744",
                             style: TextStyle(color: Colors.black, fontSize: 14),
                           )),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             "Manzil: Farg’ona, Al-Farg’oniy 11",
                             style: TextStyle(color: Colors.black, fontSize: 14),
                           )),
@@ -97,7 +97,7 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Card(
@@ -109,26 +109,27 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                   }),
                   textAlign: TextAlign.left,
                   maxLines: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black, fontSize: 18, fontFamily: "Roboto"),
                   controller: _volumeController,
                   decoration: InputDecoration(
                     fillColor: inputBackgroundColor,
                     filled: true,
                     // hoverColor: inputBackgroundColor,
-                    contentPadding: EdgeInsets.all(14),
+                    contentPadding: const EdgeInsets.all(14),
                     hintText: "Mahsulot hajmi",
-                    hintStyle: TextStyle(fontSize: 18, color: Colors.black26),
-                    enabledBorder: OutlineInputBorder(
+                    hintStyle:
+                        const TextStyle(fontSize: 18, color: Colors.black26),
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Card(
@@ -140,26 +141,27 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                   }),
                   textAlign: TextAlign.left,
                   maxLines: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black, fontSize: 18, fontFamily: "Roboto"),
                   controller: _addressController,
                   decoration: InputDecoration(
                     fillColor: inputBackgroundColor,
                     filled: true,
                     // hoverColor: inputBackgroundColor,
-                    contentPadding: EdgeInsets.all(14),
+                    contentPadding: const EdgeInsets.all(14),
                     hintText: "Manzil",
-                    hintStyle: TextStyle(fontSize: 18, color: Colors.black26),
-                    enabledBorder: OutlineInputBorder(
+                    hintStyle:
+                        const TextStyle(fontSize: 18, color: Colors.black26),
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -203,7 +205,7 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                           });
                         },
 
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 18,
                             fontFamily: "Roboto"),
@@ -212,14 +214,14 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                           fillColor: inputBackgroundColor,
                           filled: true,
                           // hoverColor: inputBackgroundColor,
-                          contentPadding: EdgeInsets.all(14),
+                          contentPadding: const EdgeInsets.all(14),
                           hintText: "Date",
-                          hintStyle:
-                              TextStyle(fontSize: 18, color: Colors.black26),
-                          enabledBorder: OutlineInputBorder(
+                          hintStyle: const TextStyle(
+                              fontSize: 18, color: Colors.black26),
+                          enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
                         ),
@@ -274,7 +276,7 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                         },
                         textAlign: TextAlign.left,
                         maxLines: 1,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 18,
                             fontFamily: "Roboto"),
@@ -283,14 +285,14 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                           fillColor: inputBackgroundColor,
                           filled: true,
                           // hoverColor: inputBackgroundColor,
-                          contentPadding: EdgeInsets.all(14),
+                          contentPadding: const EdgeInsets.all(14),
                           hintText: "Time",
-                          hintStyle:
-                              TextStyle(fontSize: 18, color: Colors.black26),
-                          enabledBorder: OutlineInputBorder(
+                          hintStyle: const TextStyle(
+                              fontSize: 18, color: Colors.black26),
+                          enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
                         ),
@@ -299,47 +301,35 @@ class _OrderCarScreenState extends State<OrderCarScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Center(
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 1.4,
                   height: 44,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
-                        side: BorderSide(color: Colors.white, width: 1)),
-                    color: textColor,
-                    onPressed: () {
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //     builder: (context) => OrderPackageScreen(
-                      //           packImage: widget.packImage,
-                      //         )));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Buyurtma berish",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontFamily: "Roboto"),
-                        ),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        Icon(
-                          Icons.chevron_right_outlined,
-                          color: Colors.white,
-                          size: 24,
-                        )
-                      ],
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        "Buyurtma berish",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontFamily: "Roboto"),
+                      ),
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Icon(
+                        Icons.chevron_right_outlined,
+                        color: Colors.white,
+                        size: 24,
+                      )
+                    ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

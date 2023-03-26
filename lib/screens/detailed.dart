@@ -29,12 +29,12 @@ class _DetailedScreenState extends State<DetailedScreen> {
       ),
 
       body: Container(
-        padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
         // color: foregroundColor,
         // width: MediaQuery.of(context).size.width,
         child: Card(
           child: Container(
-            padding: EdgeInsets.only(right: 20, left: 20),
+            padding: const EdgeInsets.only(right: 20, left: 20),
             width: MediaQuery.of(context).size.width,
           child: Column(
               children: [
@@ -42,7 +42,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
                   tag: "packCompanyImage",
                   child: Container(
                     margin:
-                    EdgeInsets.only(bottom: 20, top: 10),
+                    const EdgeInsets.only(bottom: 20, top: 10),
                     width: MediaQuery.of(context).size.width,
                     height: 240,
                     decoration: BoxDecoration(
@@ -50,7 +50,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
                             image: AssetImage(widget.packImage),
                             fit: BoxFit.cover),
                         color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                         border:
                         Border.all(color: textColor, width: 2)),
                   ),
@@ -59,56 +59,57 @@ class _DetailedScreenState extends State<DetailedScreen> {
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Mahsulot turi: Meva", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Mahsulot turi: Meva", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Mahsulot nomi: Uzum", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Mahsulot nomi: Uzum", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Xizmat narxi: 990 so’m/kg", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Xizmat narxi: 990 so’m/kg", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Qadoqlash turi: Yashik", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Qadoqlash turi: Yashik", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Xizmat ko’rsatuvchi: “MDevs Group” MCHJ", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Xizmat ko’rsatuvchi: “MDevs Group” MCHJ", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Xizmat doirasi: Respublika bo’yicha", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Xizmat doirasi: Respublika bo’yicha", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Eng kam miqdor: 100 kg", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Eng kam miqdor: 100 kg", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Bog’lanish: +998975555744", style: TextStyle(color: Colors.black, fontSize: 14),)),
-                    SizedBox(height: 6),
+                        child: const Text("Bog’lanish: +998975555744", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                    const SizedBox(height: 6),
                     Container(
                       alignment: Alignment.centerLeft,
-                        child: Text("Manzil: Farg’ona, Al-Farg’oniy 11", style: TextStyle(color: Colors.black, fontSize: 14),)),
+                        child: const Text("Manzil: Farg’ona, Al-Farg’oniy 11", style: TextStyle(color: Colors.black, fontSize: 14),)),
 
                   ],
                 ),
                 Expanded(child: Center(
                  child:
-                 RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
-                        side: BorderSide(color: textColor, width: 1)
+                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                          side: BorderSide(color: textColor, width: 1)
+                      ), backgroundColor: textColor,
                     ),
-                    color: textColor,
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => OrderPackageScreen(packImage: widget.packImage,)));
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           "Buyurtma berish",
                           style: TextStyle(
